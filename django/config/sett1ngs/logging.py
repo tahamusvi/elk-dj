@@ -42,12 +42,12 @@ LOGGING = {
         },
         'django.db.backends': {
             'handlers': ['file', 'console'],
-            'level': 'ERROR',  # سطح خطا برای لاگ‌های پایگاه داده
+            'level': 'ERROR',
             'propagate': False,
         },
         'django.utils.autoreload': {
             'handlers': ['file', 'console'],
-            'level': 'ERROR',  # جلوگیری از لاگ‌های مربوط به ری‌لود خودکار
+            'level': 'ERROR',
             'propagate': False,
         },
     },
