@@ -1,0 +1,5 @@
+Watching for file changes with StatReloader
+C:\Users\pars\Desktop\elk-dj\django\config\sett1ngs\logging.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /payment/user/ 200 [0.66, 127.0.0.1:62505][0m
+[mHTTP GET /__debug__/history_sidebar/?store_id=1e091164a58a4e6ba7afdbc8b6de9c6b 200 [0.02, 127.0.0.1:62505][0m

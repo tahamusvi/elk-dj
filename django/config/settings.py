@@ -8,3 +8,4 @@ from config.sett1ngs.channels import *
 from config.sett1ngs.internationalization import *
 from config.sett1ngs.rest_framework import *
 from config.sett1ngs.celery import *
+from config.sett1ngs.logging import *

@@ -1,3 +1,5 @@
+import os
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -5,7 +7,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': '/logs/app.log',
+            'filename': os.getenv('DJANGO_LOG_FILE', 'logs/app.log'),
         },
     },
     'loggers': {
@@ -16,3 +18,5 @@ LOGGING = {
         },
     },
 }
+
+print(LOGGING)
