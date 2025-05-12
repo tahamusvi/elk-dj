@@ -9,25 +9,36 @@ services:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - ingest.geoip.downloader.enabled=false
     ulimits:
       memlock:
         soft: -1
         hard: -1
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     ports:
       - "9200:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
 
-  kibana:
+
+    kibana:
     image: docker.elastic.co/kibana/kibana:7.17.0
     container_name: kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
       - SERVER_HOST=0.0.0.0
+      - SERVER_NAME=kibana
+      - XPACK_MONITORING_ENABLED=true
     ports:
       - "5601:5601"
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
+
 
 volumes:
   esdata:
