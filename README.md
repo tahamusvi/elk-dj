@@ -4,9 +4,9 @@
 ```
 elk-dj/
 ├── docker-compose.yml
-├── django/
+├── django/ (Django project)
 │   ├── Dockerfile
-│   └── app/ (Django project)
+│   └── manage.py 
 ├── logstash/
 │   └── pipeline.conf
 └── elasticsearch/
