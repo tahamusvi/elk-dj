@@ -1,6 +1,7 @@
 
 # Project Structure
 
+```
 elk-dj/
 ├── docker-compose.yml
 ├── django/
@@ -10,3 +11,4 @@ elk-dj/
 │   └── pipeline.conf
 └── elasticsearch/
     └── elasticsearch.yml
+```
