@@ -25,7 +25,7 @@ services:
       - esdata:/usr/share/elasticsearch/data
 
 
-    kibana:
+  kibana:
     image: docker.elastic.co/kibana/kibana:7.17.0
     container_name: kibana
     environment:
