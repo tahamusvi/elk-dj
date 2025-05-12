@@ -20,5 +20,35 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django.server': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security.DisallowedHost': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.template': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.db.backends': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',  # سطح خطا برای لاگ‌های پایگاه داده
+            'propagate': False,
+        },
+        'django.utils.autoreload': {
+            'handlers': ['file', 'console'],
+            'level': 'ERROR',  # جلوگیری از لاگ‌های مربوط به ری‌لود خودکار
+            'propagate': False,
+        },
     },
 }

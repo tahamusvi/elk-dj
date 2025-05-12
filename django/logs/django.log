@@ -1,0 +1,3 @@
+Daphne running, listening on 127.0.0.1:8000
+[mHTTP GET / 200 [0.15, 127.0.0.1:60661][0m
+[mHTTP GET /api-schema-json 200 [0.19, 127.0.0.1:60661][0m
