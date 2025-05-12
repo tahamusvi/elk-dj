@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY ./django /app
+COPY . /app
 
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
