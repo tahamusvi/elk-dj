@@ -1,13 +1,18 @@
-import os
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.getenv('DJANGO_LOG_FILE', 'logs/app.log'),
+            'filename': '/logs/django.log',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
@@ -18,5 +23,3 @@ LOGGING = {
         },
     },
 }
-
-print(LOGGING)
