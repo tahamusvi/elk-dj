@@ -1,0 +1,16 @@
+env
+db.sqlite3
+*\__pycache__
+__pycache__
+*.pyc
+
+
+# pytest
+.pytest_cache
+.coverage
+htmlcov
+
+
+# env variables
+.env
+.env.gpg
