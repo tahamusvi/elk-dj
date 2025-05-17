@@ -52,7 +52,7 @@ services:
     user: root
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - ./django/logs/:/logs/
+      - ./django/logs:/logs
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     depends_on:
@@ -64,7 +64,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./django:/django
+      - ./django:/app
+      - ./django/logs:/app/logs
+
 
 volumes:
   esdata:
