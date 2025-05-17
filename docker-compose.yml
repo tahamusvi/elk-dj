@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
@@ -19,10 +20,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 6
+      start_period: 20s
     ports:
       - "9200:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
+    restart: unless-stopped
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.0
@@ -35,6 +38,7 @@ services:
     depends_on:
       elasticsearch:
         condition: service_healthy
+    restart: unless-stopped
 
   logstash:
     image: docker.elastic.co/logstash/logstash:7.17.0
@@ -44,7 +48,9 @@ services:
     ports:
       - "5044:5044"
     depends_on:
-      - elasticsearch
+      elasticsearch:
+        condition: service_healthy
+    restart: unless-stopped
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.17.0
@@ -56,7 +62,9 @@ services:
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     depends_on:
-      - logstash
+      logstash:
+        condition: service_started
+    restart: unless-stopped
 
   django:
     build: ./django
@@ -66,7 +74,7 @@ services:
     volumes:
       - ./django:/app
       - ./django/logs:/app/logs
-
+    restart: unless-stopped
 
 volumes:
   esdata:
